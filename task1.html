@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Курсова робота</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+<body>
+	<div class="container">
+	    <div class="row header">
+	    	<a href="index.html"><strong>Курсова робота</strong></a>
+	    </div>
+		<div class="row">
+			<div class="col-3">
+				<div id="accordion">
+					<div class="card">
+				      	<div class="card-header">
+				        	<a class="collapsed card-link " data-toggle="collapse" href="#collapseOne">
+				        		<i class="fas fa-thumbtack"></i> Умова
+				      		</a>
+				      	</div>
+				      	<div id="collapseOne" class="collapse" data-parent="#accordion">
+				        	<div class="card-body">
+				          		<p>
+				          			<strong>e^x - ln(x) - 20 = 0</strong>
+				          			<br>
+				          			<br>
+				          			Побудувати графік функції
+				          			<strong>f(x)</strong>
+				          			та приблизно
+									визначити один із коренів рівняння. Розв’язати рівняння методами 
+									<br>
+									<i class="fas fa-circle"></i> <strong> ітерацій</strong>
+									<br>
+									<i class="fas fa-circle"></i> <strong> дихотомії</strong>
+									<br>
+									<i class="fas fa-circle"></i> <strong> Ньютона</strong> 
+									<br>
+									з точністю 
+									<strong>ε=10^(-4)</strong>
+				          		</p>
+				        	</div>
+				      	</div>
+					</div>
+
+					<div class="card">
+				      	<div class="card-header">
+				        	<a class="collapsed card-link " data-toggle="collapse" href="#collapseTwo">
+				        		<i class="fas fa-info-circle"></i> Довідка
+				      		</a>
+				      	</div>
+				      	<div id="collapseTwo" class="collapse" data-parent="#accordion">
+				        	<div class="card-body">
+				          		<p><i class="far fa-list-alt"></i>  Курсова робота студента групи 3-В</p>
+				          		<p><i class="fas fa-user-tie"></i>  Єрьоменка Андрія Дмитровича</p>
+				          		<a href="http://cdu.edu.ua"><i class="fas fa-university"></i>  cdu.edu.ua</a>
+				          		<br>
+				          		<a href="http://eromenko.andrey@gmail.com"><i class="fas fa-envelope-square"></i>  eromenko.andrey@gmail.com</a>
+				        	</div>
+		      			</div>
+	 				</div>
+ 				</div>
+			</div>
+
+			<div class="col-9">
+				<h3 class="mx-auto">Розв'язування нелінійних рівнянь з однією змінною</h3>
+				<br>
+				<div class="card">
+			      	<div class="card-header">
+			      		<div class="row">
+			      			<div class="col-11">
+			      				<a class="collapsed card-link " data-toggle="collapse" href="#collapseThree">
+			        				Розбиття функції на відрізки
+			      				</a>
+			      			</div>
+			      			<div class="col-1">
+			      				<i  id="check-box1" class="fas fa-check-circle"></i>
+			      			</div>
+			      		</div>
+			      	</div>
+			      	<div id="collapseThree" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			          		
+			          		<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок побудови графіка функції -->
+			          				<div class="plot-block">
+			          					<p><strong>Побудова графіка функції</strong></p>
+				          				<div class="row">
+				          					<div class="col">
+				          						<input type="text" id="mainX1" class="form-control" placeholder="X1: 0">
+				          					</div>
+				          					<div class="col">
+				          						<input type="text" id="mainX2" class="form-control" placeholder="X2: 5">
+				          					</div>
+				          				</div>
+				          				<br>
+				          				<div class="row">
+				          					<div class="col">
+				          						<input type="text" id="mainY1" class="form-control" placeholder="Y1: -20">
+				          					</div>
+				          					<div class="col">
+				          						<input type="text" id="mainY2" class="form-control" placeholder="Y2: 126">
+				          					</div>
+				          				</div>
+					          			<br>
+					          			<button type="button" class="btn btn-dark" id="buildMainPlot">Побудувати</button>
+					          			<br>
+				      				</div>
+			          	
+				          			<br>
+
+				          			<!-- Блок знаходження відрізка з коренем-->
+				          			<div class="find-section-block">
+				          				<p><strong>Знаходження відрізка</strong></p>
+										<input type="text" id="mainDelta" class="form-control mr-sm-2" placeholder="Кількість розбиттів: 4">
+										<br>
+										<button type="button" class="btn btn-dark" id="findSection">Знайти відрізок</button>
+					          			<br>
+					          			<br>
+					          			<div id="section-result"></div>
+				          				<br>
+				          			</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas class="mx-auto" height='512' width='512' id='main-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<br>
+				<div class="card">
+			      	<div class="card-header">
+			        	<div class="row">
+			      			<div class="col-11">
+			      				<a class="collapsed card-link " data-toggle="collapse" href="#collapseSix">
+			        				Метод ітерацій
+			      				</a>
+			      			</div>
+			      			<div class="col-1">
+			      				<i  id="check-box2" class="fas fa-check-circle"></i>
+			      			</div>
+			      		</div>
+			      	</div>
+			      	<div id="collapseSix" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+							<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу ітерацій-->
+			          				<div class="iter-method-block">
+			          					<p><strong>Знаходження корення</strong></p>
+			          					<div id="iter-step-info">Не визначено межі роботи алгоритму</div>
+			          					<input type="text" id="iter-step" class="form-control" placeholder="Крок: 0.1">
+			          					<br>
+										<button type="button" class="btn btn-dark" id="find-iter-root">Знайти корінь</button>
+										<br>
+					          			<br>
+					          			<div id="iter-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='iter-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<div class="card">
+			      	<div class="card-header">
+			        	<div class="row">
+			      			<div class="col-11">
+			      				<a class="collapsed card-link " data-toggle="collapse" href="#collapseFour">
+			        				Метод дихотомії
+			      				</a>
+			      			</div>
+			      			<div class="col-1">
+			      				<i  id="check-box3" class="fas fa-check-circle"></i>
+			      			</div>
+			      		</div>
+			      	</div>
+			      	<div id="collapseFour" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			          		<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу дихотомії-->
+			          				<div class="dyhot-method-block">
+			          					<p><strong>Знаходження корення</strong></p>
+			          					<div id="dyhot-step-info">Не визначено межі роботи алгоритму</div>
+			          					<br>
+										<button type="button" class="btn btn-dark" id="find-dyhot-root">Знайти корінь</button>
+										<br>
+										<br>
+										<div class="dyhot-slider">
+											<div class="row">
+												<div class="col-8">
+													<input type="range" min="1" max="8" value="50" id="dyhot-step">
+												</div>
+												<div class="col-4">
+													<div id="dyhot-step-value">
+														
+													</div>
+												</div>
+											</div>
+										</div>
+					          			<br>
+					          			<div id="dyhot-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='dyhot-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<div class="card">
+			      	<div class="card-header">
+			        	<div class="row">
+			      			<div class="col-11">
+			      				<a class="collapsed card-link " data-toggle="collapse" href="#collapseFive">
+			        				Метод Ньютона
+			      				</a>
+			      			</div>
+			      			<div class="col-1">
+			      				<i  id="check-box4" class="fas fa-check-circle"></i>
+			      			</div>
+			      		</div>
+			      	</div>
+			      	<div id="collapseFive" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			          		<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу Ньютона -->
+			          				<div class="newton-method-block">
+			          					<p><strong>Знаходження корення</strong></p>
+			          					<div id="newton-step-info">Не визначено межі роботи алгоритму</div>
+			          					<input type="text" id="newton-step" class="form-control" placeholder="Точність: 0.1">
+			          					<br>
+										<button type="button" class="btn btn-dark" id="find-newton-root">Знайти корінь</button>
+										<br>
+					          			<br>
+					          			<div id="newton-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='newton-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript" src="js/task1.js"></script>
+</body>
+</html>

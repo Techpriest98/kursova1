@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Курсова робота</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+<body>
+	<div class="container">
+	    <div class="row header">
+	    	<a href="index.html"><strong>Курсова робота</strong></a>
+	    </div>
+		<div class="row">
+			<div class="col-3">
+				<div id="accordion">
+					<div class="card">
+				      	<div class="card-header">
+				        	<a class="collapsed card-link " data-toggle="collapse" href="#collapseOne">
+				        		<i class="fas fa-thumbtack"></i> Умова
+				      		</a>
+				      	</div>
+				      	<div id="collapseOne" class="collapse" data-parent="#accordion">
+				        	<div class="card-body">
+				          		<p>
+				          			<strong>1 + e^x = 0</strong>
+				          			<br>
+				          			<br>
+				          			Обчислити визначений інтеграл 
+				          			<strong>F(x)</strong> 
+				          			аналітично і чисельно методами:
+									<br>
+									<i class="fas fa-circle"></i> <strong> прямокутників</strong>
+									<br>
+									<i class="fas fa-circle"></i> <strong> трапецій</strong>
+									<br>
+									<i class="fas fa-circle"></i> <strong> Симпсона</strong> 
+									<br>
+									<i class="fas fa-circle"></i> <strong> Монте-Карло</strong> 
+									<br>
+									для п'яти значень 
+									<strong>N</strong>, де <strong>N</strong> - число розбиттів інтервалу інтегрування 
+									<br>
+									<strong>N = 8; 32; 64; 128; 1024</strong>;
+				 					Межі інтервалу задаються при запуску програми. Результати розрахунку вивести на екран у вигляді таблиці. 
+				          		</p>
+				        	</div>
+				      	</div>
+					</div>
+
+					<div class="card">
+				      	<div class="card-header">
+				        	<a class="collapsed card-link " data-toggle="collapse" href="#collapseTwo">
+				        		<i class="fas fa-info-circle"></i> Довідка
+				      		</a>
+				      	</div>
+				      	<div id="collapseTwo" class="collapse" data-parent="#accordion">
+				        	<div class="card-body">
+				          		<p><i class="far fa-list-alt"></i>  Курсова робота студента групи 3-В</p>
+				          		<p><i class="fas fa-user-tie"></i>  Єрьоменка Андрія Дмитровича</p>
+				          		<a href="http://cdu.edu.ua"><i class="fas fa-university"></i>  cdu.edu.ua</a>
+				          		<br>
+				          		<a href="http://eromenko.andrey@gmail.com"><i class="fas fa-envelope-square"></i>  eromenko.andrey@gmail.com</a>
+				        	</div>
+		      			</div>
+	 				</div>
+ 				</div>
+			</div>
+
+			<div class="col-9">
+				<h3 class="mx-auto">Обчислення визначеного інтегралу</h3>
+				<br>
+				<div class="card">
+			      	<div class="card-header">
+						<a class="collapsed card-link " data-toggle="collapse" href="#collapseThree">
+							Визначення меж інтеграла
+						</a>
+			       	</div>
+			      	<div id="collapseThree" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			          		
+			          		<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок побудови графіка функції -->
+			          				<div class="plot-block">
+			          					<p><strong>Побудова графіка функції</strong></p>
+				          				<div class="row">
+				          					<div class="col">
+				          						<input type="text" id="mainX1" class="form-control" placeholder="X1: 0">
+				          					</div>
+				          					<div class="col">
+				          						<input type="text" id="mainX2" class="form-control" placeholder="X2: 5">
+				          					</div>
+				          				</div>
+				          				<br>
+				          				<div class="row">
+				          					<div class="col">
+				          						<input type="text" id="mainY1" class="form-control" placeholder="Y1: -20">
+				          					</div>
+				          					<div class="col">
+				          						<input type="text" id="mainY2" class="form-control" placeholder="Y2: 126">
+				          					</div>
+				          				</div>
+					          			<br>
+					          			<button type="button" class="btn btn-dark" id="buildMainPlot">Побудувати</button>
+					          			<br>
+				      				</div>
+			          	
+				          			<br>
+									<div id="section-result"></div>
+									<br>
+			          			</div>
+			          			<div class="col">
+			          				<canvas class="mx-auto" height='512' width='512' id='main-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<div class="card">
+			      	<div class="card-header">
+						<a class="collapsed card-link " data-toggle="collapse" href="#collapseSeven">
+							Аналітичний метод
+						</a>
+			      	</div>
+			      	<div id="collapseSeven" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			      			<div class="col">
+
+			      				<!-- Блок аналітичного методу-->
+			      				<div id="analit-method-block">
+			      		
+			      				</div>
+
+			      			</div>
+			        	</div>
+			      	</div>
+				</div>
+				
+				<br>
+				<div class="card">
+			      	<div class="card-header">
+						<a class="collapsed card-link " data-toggle="collapse" href="#collapseSix">
+							Метод прямокутників
+						</a>
+			      	</div>
+			      	<div id="collapseSix" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+							<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу прямокутників-->
+			          				<div class="cubes-method-block">
+			          					<p><strong>Межі інтегрування</strong></p>
+			          					<div id="cubes-step-info">Не визначено межі інтеграла</div>
+			          					<p><strong>Кількість розбиттів</strong></p>
+			          					<div class="cubes-slider">
+											<div class="row">
+												<div class="col-8">
+													<input type="range" min="1" max="10" value="1" id="cubes-step">
+												</div>
+												<div class="col-4">
+													<div id="cubes-step-value">
+														
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<button type="button" class="btn btn-dark" id="find-cubes-F">Знайти значення інтеграла</button>
+										<br>
+					          			<br>
+					          			<div id="cubes-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='cubes-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<div class="card">
+			      	<div class="card-header">
+						<a class="collapsed card-link " data-toggle="collapse" href="#collapseFour">
+							Метод трапецій
+						</a>
+			      	</div>
+			      	<div id="collapseFour" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			          		<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу трапецій-->
+			          				<div class="traps-method-block">
+			          					<p><strong>Межі інтегрування</strong></p>
+			          					<div id="traps-step-info">Не визначено межі інтеграла</div>
+			          					<p><strong>Кількість розбиттів</strong></p>
+			          					<div class="traps-slider">
+											<div class="row">
+												<div class="col-8">
+													<input type="range" min="1" max="10" value="1" id="traps-step">
+												</div>
+												<div class="col-4">
+													<div id="traps-step-value">
+														
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<button type="button" class="btn btn-dark" id="find-traps-F">Знайти значення інтеграла</button>
+										<br>
+					          			<br>
+					          			<div id="traps-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='traps-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<div class="card">
+			      	<div class="card-header">
+						<a class="collapsed card-link " data-toggle="collapse" href="#collapseFive">
+							Метод Монте Карло
+						</a>
+			      	</div>
+			      	<div id="collapseFive" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+			          		<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу Монте Карло-->
+			          				<div class="mk-method-block">
+			          					<p><strong>Межі інтегрування</strong></p>
+			          					<div id="mk-step-info">Не визначено межі інтеграла</div>
+			          					<p><strong>Кількість точок</strong></p>
+			          					<div class="mk-slider">
+											<div class="row">
+												<div class="col-8">
+													<input type="range" min="1" max="12" value="1" id="mk-step">
+												</div>
+												<div class="col-4">
+													<div id="mk-step-value">
+														
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<button type="button" class="btn btn-dark" id="find-mk-F">Знайти значення інтеграла</button>
+										<br>
+					          			<br>
+					          			<div id="mk-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='mk-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<div class="card">
+			      	<div class="card-header">
+						<a class="collapsed card-link " data-toggle="collapse" href="#collapse8">
+							Метод Сімпсона
+						</a>
+			      	</div>
+			      	<div id="collapse8" class="collapse" data-parent="#accordion">
+			        	<div class="card-body">
+							<div class="row">
+			          			<div class="col">
+
+			          				<!-- Блок методу Сімпсона-->
+			          				<div class="simp-method-block">
+			          					<p><strong>Межі інтегрування</strong></p>
+			          					<div id="simp-step-info">Не визначено межі інтеграла</div>
+			          					<p><strong>Кількість розбиттів</strong></p>
+			          					<div class="simp-slider">
+											<div class="row">
+												<div class="col-8">
+													<input type="range" min="1" max="10" value="1" id="simp-step">
+												</div>
+												<div class="col-4">
+													<div id="simp-step-value">
+														
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<button type="button" class="btn btn-dark" id="find-simp-F">Знайти значення інтеграла</button>
+										<br>
+					          			<br>
+					          			<div id="simp-result"></div>
+			          				</div>
+
+			          			</div>
+			          			<div class="col">
+			          				<canvas height='512' width='512' id='simp-plot'>Обновите браузер</canvas>
+			          			</div>
+			          		</div>
+			        	</div>
+			      	</div>
+				</div>
+				<br>
+				<h4 class="mx-auto">Обробка результатів</h4>
+				<br>
+				<div class="main-slider">
+					<div class="row">
+						<div class="col-8">
+							<input type="range" min="1" max="10" value="1" id="main-step">
+						</div>
+						<div class="col-4">
+							<div id="main-step-value" style="color: #fff;">
+								<p>Кількість ітерацій = 2</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<table class="table table-dark table-bordered">
+					<thead>
+						<tr>
+							<td>Метод</td>
+							<td>F(x)</td>
+						</tr>
+					</thead>
+			    	<tbody>
+			      		<tr>
+			        		<td>Прямокутників</td>
+			        		<td id="res1"> - </td>
+			     		</tr>
+			     		<tr>
+			        		<td>Трапецій</td>
+			        		<td id="res2"> - </td>
+			     		</tr>
+			     		<tr>
+			        		<td>Монте Карло</td>
+			        		<td id="res3"> - </td>
+			     		</tr>
+			     		<tr>
+			        		<td>Сімпсона</td>
+			        		<td id="res4"> - </td>
+			     		</tr>
+			     	</tbody>
+				</table>
+				<br>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript" src="js/task3.js"></script>
+</body>
+</html>
